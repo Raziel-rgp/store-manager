@@ -1,5 +1,5 @@
 const mysql = require('mysql2/promise');
-
+// config to access mysqldb
 const connection = mysql.createPool({
   host: process.env.MYSQL_HOST,
   user: process.env.MYSQL_USER,
