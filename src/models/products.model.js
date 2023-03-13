@@ -1,5 +1,6 @@
 const connection = require('./connection');
 
+// req 1
 // accesses db and return it
 const findAll = async () => {
   const [products] = await connection.execute(
@@ -8,6 +9,7 @@ const findAll = async () => {
   return products;
 };
 
+// req 1
 // accesses db and search by id and return it
 const findById = async (productId) => {
   const [[product]] = await connection.execute(
@@ -17,7 +19,18 @@ const findById = async (productId) => {
   return product;
 };
 
+// req 3
+
+const insertNewProduct = async (productName) => {
+  const [{ product }] = await connection.execute(
+    'INSERT INTO StoreManager.products (name) VALUE (?)',
+    [productName],
+  );
+  return product;
+};
+
 module.exports = {
   findAll,
   findById,
+  insertNewProduct,
 };
