@@ -4,10 +4,11 @@ const sinon = require('sinon');
 const connection = require('../../../src/models/connection');
 const { allSales } = require('./mocks/sales.mock');
 const { saleModel } = require('../../../src/models');
-const { func } = require('joi');
 
-describe('first', async function () {
-  afterEach(sinon.restore);
+describe('first', function () {
+  afterEach(function() {
+    sinon.restore()
+  })
 
   it('recuperando todas a sales', async function () {
     sinon.stub(connection, "execute").resolves([allSales])

@@ -5,8 +5,10 @@ const connection = require('../../../src/models/connection');
 const { allProducts, productId1, newProduct } = require('./mocks/products.mocks'); 
 const { productsModel } = require('../../../src/models');
 
-describe('Tests of Model product', async function () {
-  afterEach(sinon.restore);
+describe('Tests of Model product', function () {
+  afterEach(function () {
+    sinon.restore()
+  })
 
   it('recive the list of products', async function () {
     sinon.stub(connection, "execute").resolves([allProducts])

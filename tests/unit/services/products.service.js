@@ -6,7 +6,7 @@ const { productsModel } = require('../../../src/models');
 const { allProducts } = require('./mocks/products.mock'); 
 
 
-describe('Verificando service pessoa passageira', function () {
+// describe('Verificando service pessoa passageira', function () {
   describe('listagem de pessoas passageiras', function () {
     it('retorna a lista completa de pessoas passageiras', async function () {
       // arrange
@@ -33,11 +33,8 @@ describe('Verificando service pessoa passageira', function () {
     });
 
   });
-  it('', async function() {
-    
-  });
 
   afterEach(function () {
     sinon.restore();
   });
-});
+// });
