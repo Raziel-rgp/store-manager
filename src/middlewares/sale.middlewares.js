@@ -39,7 +39,6 @@ const validateProduct = async (req, res, next) => {
     const findById = await productsModel.findById(productId);
     return findById;
   }));
-
   const e = findAll.every((product) => product !== null && product !== undefined);
   const result = !e ? res.status(404).json({ message: 'Product not found' })
     : next();

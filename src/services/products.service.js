@@ -11,8 +11,9 @@ const findAll = async () => {
 // uses findById of products.model and return the result if exist. If dont, return an error
 const findById = async (productId) => {
   const product = await productsModel.findById(productId);
-  if (!product) return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
-  return { type: null, message: product };
+  const result = !product ? { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' }
+    : { type: null, message: product };
+  return result;
 };
 
 // req 3
@@ -28,7 +29,6 @@ const updateProduct = async (id, update) => {
   if (type) return { type, message };
   await productsModel.updateProduct(id, update);
   const findProduct = await findById(id);
-  console.log('textokk', findProduct);
   return { type: findProduct.type, message: findProduct.message };
 };
 

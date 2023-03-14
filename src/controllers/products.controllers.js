@@ -31,8 +31,6 @@ const updateProduct = async (req, res) => {
   const { name } = req.body;
   const { id } = req.params;
   const { type, message } = await productService.updateProduct(id, name);
-  console.log('type', type);
-  console.log('message', message);
   const result = type ? res.status(errorType.errorMap(type)).json({ message })
     : res.status(200).json(message);
   return result;
