@@ -7,6 +7,8 @@ const { saleModel } = require('../../../src/models');
 const { func } = require('joi');
 
 describe('first', async function () {
+  afterEach(sinon.restore);
+
   it('recuperando todas a sales', async function () {
     sinon.stub(connection, "execute").resolves([allSales])
     const result = await saleModel.findAll()
