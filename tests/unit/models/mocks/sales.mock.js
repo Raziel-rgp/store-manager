@@ -12,3 +12,6 @@ const allSales = [
     "quantity": 2
   }
 ]
+module.exports = {
+  allSales,
+}

@@ -19,7 +19,4 @@ describe('first', async function () {
     const result = await saleModel.findById(1);
     expect(result).to.be.deep.equal(allSales[0]);
   });
-  it('', async function () {
-    
-  });
 });

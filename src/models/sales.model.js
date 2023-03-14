@@ -46,12 +46,12 @@ const deleteById = async (id) => {
   return result;
 };
 
-const updateProduct = async (id, update) => {
+/* const updateProduct = async (id, update) => {
   const [product] = await connection.execute(`
     UPDATE StoreManager.sales_product SET quantity = ? WHERE sale_id = ? AND product_id = ?`,
     [update.quantity, id, update.productId]);
   return product;
-};
+}; */
 
 module.exports = {
   insertNewSale,
@@ -60,5 +60,5 @@ module.exports = {
   findById,
   validateId,
   deleteById,
-  updateProduct,
+/*   updateProduct, */
 };
