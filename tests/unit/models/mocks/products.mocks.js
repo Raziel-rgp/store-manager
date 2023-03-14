@@ -1,4 +1,4 @@
-/* const allProducts = [
+const allProducts = [
   {
     id: 1,
     name: "Martelo de Thor",
@@ -13,12 +13,10 @@
   },
 ];
 
-const productId1 = [
-  {
-    id: 1,
-    name: "Martelo de Thor",
-  },
-]
+const productId1 = {
+  id: 1,
+  name: "Martelo de Thor",
+}
 
 const productId2 = [
   {
@@ -34,9 +32,14 @@ const productId3 = [
   },
 ]
 
+const newProduct = {
+  "name": "ProdutoX"
+}
+
 module.exports = {
   allProducts,
   productId1,
   productId2,
   productId3,
-}; */
+  newProduct
+};

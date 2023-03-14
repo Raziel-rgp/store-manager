@@ -1,9 +1,9 @@
-/* const { expect } = require('chai');
+const { expect } = require('chai');
 const sinon = require('sinon');
 
 const { productService } = require('../../../src/services');
 const { productsModel } = require('../../../src/models');
-const { allProducts } = require('../mocks/products.mock'); 
+const { allProducts } = require('./mocks/products.mock'); 
 
 
 describe('Verificando service pessoa passageira', function () {
@@ -50,4 +50,3 @@ describe('Verificando service pessoa passageira', function () {
     sinon.restore();
   });
 });
- */
