@@ -22,10 +22,17 @@ const findById = async (productId) => {
 // req 3
 
 const insertNewProduct = async (productName) => {
-  const [{ product }] = await connection.execute(
+  const [{ insertId }] = await connection.execute(
     'INSERT INTO StoreManager.products (name) VALUE (?)',
-    [productName],
+    [productName.product],
   );
+  return insertId;
+};
+
+const updateProduct = async (id, update) => {
+  const [product] = await connection.execute(`
+    UPDATE StoreManager.products SET name = ? WHERE id = ?`,
+    [update, id]);
   return product;
 };
 
@@ -33,4 +40,5 @@ module.exports = {
   findAll,
   findById,
   insertNewProduct,
+  updateProduct,
 };

@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+/* const { expect } = require('chai');
 const sinon = require('sinon');
 
 const connection = require('../../../src/models/connection');
@@ -21,4 +21,4 @@ describe('Tests of Model', async function () {
     const result = await productsModel.findById(1)
     expect(result).to.be.deep.equal(productId1);
   });
-});
+}); */

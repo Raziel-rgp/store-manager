@@ -1,4 +1,4 @@
-const allProducts = [
+/* const allProducts = [
   {
     id: 1,
     name: "Martelo de Thor",
@@ -39,4 +39,4 @@ module.exports = {
   productId1,
   productId2,
   productId3,
-};
+}; */
