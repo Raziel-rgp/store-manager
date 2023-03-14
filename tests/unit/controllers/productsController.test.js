@@ -3,8 +3,8 @@ const sinon = require('sinon');
 
 const connection = require('../../../src/models/connection');
 const { allProducts } = require('./mocks/productControler.mock');
-const { productService } = require('../../../src/service/index');
-const { productsControllers } = require
+const { productService } = require('../../../src/services/index');
+const { productsControllers } = require('../../../src/controllers/index')
 
 describe('controllers:', function () {
   describe('recover list of products', function () {
@@ -12,16 +12,16 @@ describe('controllers:', function () {
       const res = {};
       const req = {};
 
-      res.status = sinon.stub().return(res);
+      res.status = sinon.stub().returns(res);
       res.json = sinon.stub().returns();
       sinon
-        .stub(productsService, "findAll")
+        .stub(productService, "findAll")
         .resolves({ type: null, message: allProducts })
       
       await productsControllers.findAll(req, res);
 
-      expect(res.status).to.have.been.calledWith(200)
-      expect(res.json).to.have.been.calledWith(allProducts)
+      expect(res.status.calledWith(200)).to.be.equal(true)
+      expect(res.json.calledWith(allProducts)).to.be.equal(true)
     });
   });
 });
