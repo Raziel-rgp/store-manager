@@ -35,7 +35,14 @@ const updateProduct = async (req, res) => {
   console.log('message', message);
   const result = type ? res.status(errorType.errorMap(type)).json({ message })
     : res.status(200).json(message);
-/*   console.log('result', result); */
+  return result;
+};
+
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+  const { type, message } = await productService.deleteById(id);
+  const result = type ? res.status(errorType.errorMap(type)).json({ message })
+    : res.status(204).end();
   return result;
 };
 
@@ -44,4 +51,5 @@ module.exports = {
   findById,
   insertNewProduct,
   updateProduct,
+  deleteById,
 };
