@@ -34,9 +34,16 @@ const productId3 = [
   },
 ]
 
+const newProduct = {
+  id: 4,
+  name: 'produxts'
+}
+
+
 module.exports = {
   allProducts,
   productId1,
   productId2,
   productId3,
+  newProduct,
 };

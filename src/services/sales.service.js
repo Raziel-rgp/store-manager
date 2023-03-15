@@ -16,6 +16,7 @@ const findAll = async () => {
 
 const findById = async (id) => {
   const sale = await saleModel.findById(id);
+  console.log(sale);
   const result = !sale.length ? { type: 'SALE_NOT_FOUND', message: 'Sale not found' }
     : { type: null, message: sale };
   return result;
