@@ -16,7 +16,6 @@ const findAll = async () => {
 
 const findById = async (id) => {
   const sale = await saleModel.findById(id);
-  console.log(sale);
   const result = !sale.length ? { type: 'SALE_NOT_FOUND', message: 'Sale not found' }
     : { type: null, message: sale };
   return result;
@@ -29,9 +28,17 @@ const deleteById = async (id) => {
   return result;
 };
 
+const updateSales = async (id, sales) => {
+  const validate = await saleModel.validateId(id);
+  if (!validate) return { type: 'SALE_NOT_FOUND', message: 'Sale not found' };
+  await Promise.all(sales.map(async (sale) => saleModel.updateSales(id, sale)));
+  return { message: { saleId: id, itemsUpdated: sales } };
+};
+
 module.exports = {
   insertNewSale,
   findAll,
   findById,
   deleteById,
+  updateSales,
 };

@@ -36,10 +36,15 @@ const newProduct = {
   "name": "ProdutoX"
 }
 
+const productUpdated = [
+  { id: 1, name: "BalaDeGoma" }
+]
+
 module.exports = {
   allProducts,
   productId1,
   productId2,
   productId3,
-  newProduct
+  newProduct,
+  productUpdated
 };

@@ -39,10 +39,20 @@ const deleteById = async (id) => {
   return { type: null };
 };
 
+const searchProductsByName = async (name) => {
+  console.log('name', name);
+  const sale = await productsModel.searchProductsByName(`%${name}%`);
+  console.log('sale', sale);
+  const result = !sale.length ? { type: 'SALE_NOT_FOUND', message: 'Sale not found' }
+    : { type: null, message: sale };
+  return result;
+};
+
 module.exports = {
   findAll,
   findById,
   insertNewProduct,
   updateProduct,
   deleteById,
+  searchProductsByName,
 };

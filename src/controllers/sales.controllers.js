@@ -28,7 +28,16 @@ const deleteById = async (req, res) => {
   const { id } = req.params;
   const { type, message } = await saleService.deleteById(id);
   const result = type ? res.status(type).json({ message })
-    : res.status(204).end();
+    : res.status(204).json();
+  return result;
+};
+
+const updateSales = async (req, res) => {
+  const { id } = req.params;
+  const sales = req.body;
+  const { type, message } = await saleService.updateSales(id, sales);
+  const result = type ? res.status(errorType.errorMap(type)).json({ message })
+    : res.status(200).json(message);
   return result;
 };
 
@@ -37,4 +46,5 @@ module.exports = {
   findAll,
   findById,
   deleteById,
+  updateSales,
 };

@@ -5,7 +5,11 @@ const { saleService } = require('../../../src/services');
 const { saleModel } = require('../../../src/models');
 const { allSales } = require('./mocks/sales.mock'); 
 
-describe('first', function () { 
+describe('sales service:', function () { 
+  afterEach(function () {
+    sinon.restore();
+  });
+
   it('retorna a lista completa sales', async function () {
     // arrange
     sinon.stub(saleModel, 'findAll').resolves(allSales);
@@ -22,6 +26,7 @@ describe('first', function () {
     expect(result.type).to.equal('SALE_NOT_FOUND');
     expect(result.message).to.equal('Sale not found');
   });
+
   it('retorna um erro caso a pessoa passageira exista', async function () {
     sinon.stub(saleModel, 'findById').resolves([allSales[0]]);
     const result = await saleService.findById(1);

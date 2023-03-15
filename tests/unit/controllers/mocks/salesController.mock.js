@@ -12,14 +12,6 @@ const allSales = [
     "quantity": 2
   }
 ]
-
-const newSale = 
-  {
-    "date": "2021-09-09T04:54:29.000Z",
-    "productId": 3,
-    "quantity": 2
-  }
 module.exports = {
   allSales,
-  newSale,
 }

@@ -2,22 +2,29 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const connection = require('../../../src/models/connection');
-const { allSales } = require('./mocks/sales.mock');
+const { allSales, newSale } = require('./mocks/sales.mock');
 const { saleModel } = require('../../../src/models');
 
-describe('first', function () {
+describe('seles Models: ', function () {
   afterEach(function() {
     sinon.restore()
   })
 
-  it('recuperando todas a sales', async function () {
+  it('findAll', async function () {
     sinon.stub(connection, "execute").resolves([allSales])
     const result = await saleModel.findAll()
     expect(result).to.be.deep.equal(allSales);
   })
-  it('recuperando sales by id', async function () {
+  it('findById: ', async function () {
     sinon.stub(connection, 'execute').resolves([allSales[0]]);
     const result = await saleModel.findById(1);
     expect(result).to.be.deep.equal(allSales[0]);
+  });
+
+  it('deleteById: ', async function () {
+    sinon.stub(connection, 'execute').resolves();
+    const result = await saleModel.deleteById(4);
+    expect(result).to.be.deep.equal();
+    expect(result).to.be.deep.equal();
   });
 });

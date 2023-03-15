@@ -9,6 +9,12 @@ const allProducts = [
   }
 ];
 
+const newProduct = {
+  "id": 3,
+  "name": "Boné de Cria"
+}
+
 module.exports = {
   allProducts,
+  newProduct,
 }
