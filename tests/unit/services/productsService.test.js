@@ -44,14 +44,14 @@ describe('listagem de pessoas passageiras', function () {
     expect(result).to.deep.equal(newProduct)
   });
 
-  it('deleteById', async () => {
+  it('deleteById service:', async () => {
     sinon.stub(productsModel, 'deleteById').resolves();
     const response = await productService.deleteById(1);
-    expect(response).to.be.deep.equal({ type: null, message: '' });
+    expect(response).to.be.deep.equal({ type: null });
   });
 
-  it('verifica se é possível autalizar um produto', async () => {
-    sinon.stub(productsModel, 'findById').resolves(4);
+  it('updateProduct Service: ', async () => {
+    sinon.stub(productsModel, 'findById').resolves(newProduct);
     sinon.stub(productsModel, 'updateProduct').resolves(newProduct);
     const response = await productService.updateProduct({ name: 'produxts' });
     expect(response).to.be.deep.equal({ type: null, message: newProduct });

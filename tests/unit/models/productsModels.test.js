@@ -28,7 +28,7 @@ describe('Tests of Model product', function () {
     expect(result).to.be.deep.equal(1);
   });
 
-  it('deleteById: ', async function () {
+  it('deleteById models: ', async function () {
     sinon.stub(connection, 'execute').resolves();
     const result = await productsModel.deleteById(4);
     expect(result).to.be.deep.equal();

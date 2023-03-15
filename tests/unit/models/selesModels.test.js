@@ -21,7 +21,7 @@ describe('seles Models: ', function () {
     expect(result).to.be.deep.equal(allSales[0]);
   });
 
-  it('deleteById: ', async function () {
+  it('deleteById models: ', async function () {
     sinon.stub(connection, 'execute').resolves();
     const result = await saleModel.deleteById(4);
     expect(result).to.be.deep.equal();
